@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import BDBOAuth1Manager
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -40,7 +41,32 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
-
-
+    
+    func application(app: UIApplication, openURL url: NSURL, options: [String : AnyObject]) -> Bool {
+        print(url.description)
+        
+        let requestToken = BDBOAuth1Credential(queryString: url.query)
+        let twitterClient = BDBOAuth1SessionManager(baseURL: NSURL(string: "https://api.twitter.com")!, consumerKey: "8K3NhQWrV9REzuLLHksUBuaOK", consumerSecret: "LrCwVxMblkRtz7cpEuUg9HaKHFxOnKlXFrOwDp9fQBvLz43yu3")
+        
+        twitterClient.fetchAccessTokenWithPath("oauth/access_token", method: "POST", requestToken: requestToken, success: { (accessToken:BDBOAuth1Credential!) -> Void in
+            print("I got the access code!")
+            
+            twitterClient.GET("1.1/account/verify_credentials.json", parameters: nil, progress: nil, success: { (task:NSURLSessionData, response: AnyObject?) -> Void in
+                let user = response as! NSDictionary
+                print("name: \(user["name"])")
+                }, failure: { (task: NSURLSessionDataTask?, error: NSError) -> Void in
+                })
+                
+            twitterClient.GET("1.1/statuses/home_timeline.json", parameters: nil, progress: nil, success: { (task: NSURLSessionDataTask, response: AnyObject?) -> Void in
+                let tweets = response as! [NSDictionary]
+                for tweet in tweets {
+                    print("\(tweet["text"]!)")
+                }, failure: { (task: NSURLSessionDataTask, error: NSError) -> Void in
+                
+                })
+            }) { (error: NSError!) -> Void in
+                    print("error: \(error.localizedDescription)")
+                }
+        return true
+        }
 }
-
