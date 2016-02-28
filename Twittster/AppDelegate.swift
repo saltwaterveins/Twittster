@@ -47,26 +47,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let requestToken = BDBOAuth1Credential(queryString: url.query)
         let twitterClient = BDBOAuth1SessionManager(baseURL: NSURL(string: "https://api.twitter.com")!, consumerKey: "8K3NhQWrV9REzuLLHksUBuaOK", consumerSecret: "LrCwVxMblkRtz7cpEuUg9HaKHFxOnKlXFrOwDp9fQBvLz43yu3")
-        
-        twitterClient.fetchAccessTokenWithPath("oauth/access_token", method: "POST", requestToken: requestToken, success: { (accessToken:BDBOAuth1Credential!) -> Void in
-            print("I got the access code!")
+        twitterClient.fetchAccessTokenWithPath("oauth/access_token", method: "POST", requestToken: requestToken, success: { (accessToken: BDBOAuth1Credential!) -> Void in
             
-            twitterClient.GET("1.1/account/verify_credentials.json", parameters: nil, progress: nil, success: { (task:NSURLSessionData, response: AnyObject?) -> Void in
+            twitterClient.GET("1.1/account/verify_credentials.json", parameters: nil, progress: nil, success: { (task:NSURLSessionDataTask, response: AnyObject?) -> Void in
                 let user = response as! NSDictionary
                 print("name: \(user["name"])")
                 }, failure: { (task: NSURLSessionDataTask?, error: NSError) -> Void in
-                })
-                
-            twitterClient.GET("1.1/statuses/home_timeline.json", parameters: nil, progress: nil, success: { (task: NSURLSessionDataTask, response: AnyObject?) -> Void in
+            })
+            
+            twitterClient.GET("1.1/statuses/home_timeline.json", parameters: nil, progress: nil, success: { (tasl:NSURLSessionDataTask, response: AnyObject?) -> Void in
                 let tweets = response as! [NSDictionary]
-                for tweet in tweets {
-                    print("\(tweet["text"]!)")
-                }, failure: { (task: NSURLSessionDataTask, error: NSError) -> Void in
-                
-                })
-            }) { (error: NSError!) -> Void in
-                    print("error: \(error.localizedDescription)")
+                            for tweet in tweets {
+                                print("\(tweet["text"]!)")
                 }
-        return true
+                }, failure: { (task: NSURLSessionDataTask?, error: NSError) -> Void in
+            })
+            
+            
+            }) { (error: NSError!) -> Void in
+                 print("error: \(error.localizedDescription)")
+        }
+        
+            return true
         }
 }
