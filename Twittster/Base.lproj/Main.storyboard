@@ -54,7 +54,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="146" id="1Rq-OI-tbq" customClass="TweetTableViewCell" customModule="Twittster" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TweetTableViewCell" rowHeight="146" id="1Rq-OI-tbq" customClass="TweetTableViewCell" customModule="Twittster" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="92" width="320" height="146"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1Rq-OI-tbq" id="5Yy-Ri-oGd">
@@ -92,7 +92,7 @@
                                                     <rect key="frame" x="271" y="101" width="32" height="32"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="TweetTweetTweetTweetTweetTweetTweet" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PaQ-E4-Q8z">
-                                                    <rect key="frame" x="103" y="34" width="213" height="36"/>
+                                                    <rect key="frame" x="103" y="34" width="213" height="63"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
@@ -102,8 +102,6 @@
                                         <connections>
                                             <outlet property="nameText" destination="Jkn-Oy-GR4" id="foD-Rb-SNb"/>
                                             <outlet property="profPic" destination="XYe-T4-ghQ" id="XwW-d9-2c2"/>
-                                            <outlet property="replyImage" destination="A4e-Ke-ELw" id="PxD-4F-KRj"/>
-                                            <outlet property="retweetImage" destination="sIU-Hg-kRH" id="xF9-4A-bK2"/>
                                             <outlet property="timeText" destination="DEW-qU-wKA" id="6wJ-1j-b8b"/>
                                             <outlet property="tweetText" destination="PaQ-E4-Q8z" id="Ta3-de-udB"/>
                                             <outlet property="usernameText" destination="NZw-Y5-tWP" id="NnJ-Ev-OVh"/>

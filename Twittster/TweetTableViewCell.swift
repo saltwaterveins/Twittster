@@ -22,18 +22,17 @@ class TweetTableViewCell: UITableViewCell {
         didSet {
             tweetText.text = tweets.text as? String
             timeText.text = dateFormatter.stringFromDate(tweets.timeStamp!)
-            
-        }
-    }
+        //}
+    //}
     
     
     
-    var users: User!{
-        didSet {
-                let ppURL = NSURL(string: users.profileURL! as String)
-            profPic.setImageWithURL(ppURL!)
-            nameText.text = users.name as? String
-            usernameText.text = users.screenname as? String
+    //var users: User!{
+        //didSet {
+            //let ppURL = NSURL(string: tweets.profileURL)
+            //profPic.setImageWithURL(ppURL!)
+            nameText.text = tweets.name as? String
+            usernameText.text = tweets.screenname as? String
         }
     }
 

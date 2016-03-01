@@ -14,7 +14,7 @@ class tweetsViewController: UIViewController, UITableViewDataSource, UITableView
     @IBOutlet weak var tableView: UITableView!
     
     var tweets: [Tweet]!
-    var userLogin: User!
+    var user: User!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,23 +22,21 @@ class tweetsViewController: UIViewController, UITableViewDataSource, UITableView
         self.tableView.delegate = self
         TwitterClient.sharedInstance.homeTimeLine({ (tweets:[Tweet]) -> () in
             self.tweets = tweets
+            //self.users = user
             self.tableView.reloadData()
             
-            
-            for tweet in tweets {
+            /*for tweet in tweets {
                     print(tweet.text)
                     //self.tableView.reloadData()
-                }
+                }*/
                 }, failure: {(error: NSError) -> () in
                     //print(error.localizedDescription)
             })
-        TwitterClient.sharedInstance.currentAccount({ (userLogin: User) -> () in
-            
-            self.userLogin = userLogin
-            
-            self.tableView.reloadData()
+        
+        TwitterClient.sharedInstance.currentAccount({ (user: User) -> () in
+                self.user = user
             }) { (error:NSError) -> () in
-                print(error.localizedDescription)
+                //print(error.localizedDescription)
         }
         
         

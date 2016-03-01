@@ -55,7 +55,7 @@ class TwitterClient: BDBOAuth1SessionManager {
             
             
             
-            /*self.homeTimeLine({ (tweets:[Tweet]) -> () in
+            self.homeTimeLine({ (tweets:[Tweet]) -> () in
                 for tweet in tweets {
                     print(tweet.text)
                 }
@@ -63,7 +63,7 @@ class TwitterClient: BDBOAuth1SessionManager {
                     //print(error.localizedDescription)
             })
             
-            self.currentAccount()*/
+            //self.currentAccount()
             
             }) { (error: NSError!) -> Void in
                 print("error: \(error.localizedDescription)")
