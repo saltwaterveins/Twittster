@@ -15,24 +15,37 @@ class TweetTableViewCell: UITableViewCell {
     @IBOutlet weak var nameText: UILabel!
     @IBOutlet weak var usernameText: UILabel!
     @IBOutlet weak var timeText: UILabel!
+   
+    @IBOutlet weak var RetweetButton: UIButton!
+    @IBOutlet weak var FavButton: UIButton!
+    
+    @IBOutlet weak var retweetCount: UILabel!
+    @IBOutlet weak var favCount: UILabel!
+    
+    var tweetID: String = ""
     
     var dateFormatter = NSDateFormatter()
     
     var tweets: Tweet! {
         didSet {
+            
+            nameText.text = "\((tweets.user?.name)!)"
+            usernameText.text = "@" + "\((tweets.user?.screenname)!)"
             tweetText.text = tweets.text as? String
-            timeText.text = dateFormatter.stringFromDate(tweets.timeStamp!)
-        //}
-    //}
-    
-    
-    
-    //var users: User!{
-        //didSet {
-            //let ppURL = NSURL(string: tweets.profileURL)
-            //profPic.setImageWithURL(ppURL!)
-            nameText.text = tweets.name as? String
-            usernameText.text = tweets.screenname as? String
+            timeText.text = "\(tweets.timeStamp!)"
+            timeText.text = calculateTimeStamp(tweets.timeStamp!.timeIntervalSinceNow)
+            
+            
+            let imageUrl = tweets.user?.profileURL!
+            profPic.setImageWithURL(NSURL(string: imageUrl! as String)!)
+            
+            tweetID = tweets.id
+            retweetCount.text = String(tweets.retweetCount)
+            favCount.text = String(tweets.favCount)
+            
+            retweetCount.text! == "0" ? (retweetCount.hidden = true) : (retweetCount.hidden = false)
+            favCount.text! == "0" ? (favCount.hidden = true) : (favCount.hidden = false)
+        
         }
     }
 
@@ -59,5 +72,64 @@ class TweetTableViewCell: UITableViewCell {
         tweetTableView.reloadData()
         
     }*/
+    
+    func calculateTimeStamp(timeTweetPostedAgo: NSTimeInterval) -> String {
+        var rawTime = Int(timeTweetPostedAgo)
+        var timeAgo: Int = 0
+        var timeChar = ""
+        
+        rawTime = rawTime * (-1)
+        
+        if (rawTime <= 60) {
+            timeAgo = rawTime
+            timeChar = "s"
+        } else if ((rawTime/60) <= 60) {
+            timeAgo = rawTime/60
+            timeChar = "m"
+        } else if (rawTime/60/60 <= 24) {
+            timeAgo = rawTime/60/60
+            timeChar = "h"
+        } else if (rawTime/60/60/24 <= 365) {
+            timeAgo = rawTime/60/60/24
+            timeChar = "d"
+        } else if (rawTime/(3153600) <= 1) {
+            timeAgo = rawTime/60/60/24/365
+            timeChar = "y"
+        }
+        
+        return "\(timeAgo)\(timeChar)"
+    }
+    
+    //The two following fuctions are curtsey of @r3dcrosse from gitHub
+    
+    @IBAction func onRetweet(sender: AnyObject) {
+        
+        
+        TwitterClient.sharedInstance.retweet(Int(tweetID)!, params: nil, completion: {(error) -> () in
+            self.RetweetButton.setImage(UIImage(named: "retweet-action-on"), forState: UIControlState.Selected)
+            
+            if self.retweetCount.text! > "0" {
+                self.retweetCount.text = String(self.tweets.retweetCount + 1)
+            } else {
+                self.retweetCount.hidden = false
+                self.retweetCount.text = String(self.tweets.retweetCount + 1)
+            }
+        })
+    }
+    
+    @IBAction func onLike(sender: AnyObject) {
+        
+        TwitterClient.sharedInstance.likeTweet(Int(tweetID)!, params: nil, completion: {(error) -> () in
+            self.FavButton.setImage(UIImage(named: "like-action-on"), forState: UIControlState.Selected)
+            
+            if self.favCount.text! > "0" {
+                self.favCount.text = String(self.tweets.favCount + 1)
+            } else {
+                self.favCount.hidden = false
+                self.favCount.text = String(self.tweets.favCount + 1)
+            }
+        })
+    }
+    
 
 }
