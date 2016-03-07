@@ -54,11 +54,11 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TweetTableViewCell" rowHeight="146" id="1Rq-OI-tbq" customClass="TweetTableViewCell" customModule="Twittster" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="TweetTableViewCell" rowHeight="146" id="1Rq-OI-tbq" customClass="TweetTableViewCell" customModule="Twittster" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="92" width="320" height="146"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1Rq-OI-tbq" id="5Yy-Ri-oGd">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="145.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="287" height="145.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XYe-T4-ghQ">
@@ -129,6 +129,7 @@
                                             <outlet property="timeText" destination="DEW-qU-wKA" id="6wJ-1j-b8b"/>
                                             <outlet property="tweetText" destination="PaQ-E4-Q8z" id="Ta3-de-udB"/>
                                             <outlet property="usernameText" destination="NZw-Y5-tWP" id="NnJ-Ev-OVh"/>
+                                            <segue destination="d5V-vY-UBw" kind="push" id="8OL-nZ-gnm"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -150,6 +151,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5ij-wb-dBU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1140" y="299"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="pGU-W2-eDg">
+            <objects>
+                <viewController id="d5V-vY-UBw" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y8h-D3-JUM"/>
+                        <viewControllerLayoutGuide type="bottom" id="2Ba-Wg-q95"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="xOm-mS-49o">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Bz1-kg-EC7"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZUd-WG-N4w" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1644" y="286"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="NpK-de-5mv">
