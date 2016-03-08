@@ -96,6 +96,15 @@ class TwitterClient: BDBOAuth1SessionManager {
         })
     }
     
+    func write(escapedTweet: String, params: NSDictionary?, completion: (error: NSError?) -> () ){
+        POST("1.1/statuses/update.json?status=\(escapedTweet)", parameters: params, success: { (operation: NSURLSessionDataTask!, response: AnyObject?) -> Void in
+            completion(error: nil)
+            }, failure: { (operation: NSURLSessionDataTask?, error: NSError!) -> Void in
+                completion(error: error)
+            }
+        )
+    }
+    
     //The following two fuctions
     //are curtsey of @r3dcrosse on gitHub
     func retweet(id: Int, params: NSDictionary?, completion: (error: NSError?) -> () ){

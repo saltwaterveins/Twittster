@@ -26,6 +26,15 @@
 		7FE035CA1C84874400A6B636 /* TweetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE035C91C84874400A6B636 /* TweetTableViewCell.swift */; };
 		7FE035CB1C84874400A6B636 /* TweetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE035C91C84874400A6B636 /* TweetTableViewCell.swift */; };
 		7FE035CC1C84874400A6B636 /* TweetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE035C91C84874400A6B636 /* TweetTableViewCell.swift */; };
+		7FE035CE1C8D4B0D00A6B636 /* IndividualTweetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE035CD1C8D4B0D00A6B636 /* IndividualTweetViewController.swift */; };
+		7FE035CF1C8D4B0D00A6B636 /* IndividualTweetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE035CD1C8D4B0D00A6B636 /* IndividualTweetViewController.swift */; };
+		7FE035D01C8D4B0D00A6B636 /* IndividualTweetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE035CD1C8D4B0D00A6B636 /* IndividualTweetViewController.swift */; };
+		7FE035D21C8D5F9500A6B636 /* WriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE035D11C8D5F9500A6B636 /* WriteViewController.swift */; };
+		7FE035D31C8D5F9500A6B636 /* WriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE035D11C8D5F9500A6B636 /* WriteViewController.swift */; };
+		7FE035D41C8D5F9500A6B636 /* WriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE035D11C8D5F9500A6B636 /* WriteViewController.swift */; };
+		7FE035D61C8DEF5000A6B636 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE035D51C8DEF5000A6B636 /* ProfileViewController.swift */; };
+		7FE035D71C8DEF5000A6B636 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE035D51C8DEF5000A6B636 /* ProfileViewController.swift */; };
+		7FE035D81C8DEF5000A6B636 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FE035D51C8DEF5000A6B636 /* ProfileViewController.swift */; };
 		7FF178821C7BDD35004BBCC6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF178811C7BDD35004BBCC6 /* AppDelegate.swift */; };
 		7FF178841C7BDD35004BBCC6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FF178831C7BDD35004BBCC6 /* ViewController.swift */; };
 		7FF178871C7BDD35004BBCC6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FF178851C7BDD35004BBCC6 /* Main.storyboard */; };
@@ -61,6 +70,9 @@
 		7FE035C11C83A92D00A6B636 /* TwitterClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TwitterClient.swift; sourceTree = "<group>"; };
 		7FE035C51C83B48F00A6B636 /* tweetsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = tweetsViewController.swift; sourceTree = "<group>"; };
 		7FE035C91C84874400A6B636 /* TweetTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetTableViewCell.swift; sourceTree = "<group>"; };
+		7FE035CD1C8D4B0D00A6B636 /* IndividualTweetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IndividualTweetViewController.swift; sourceTree = "<group>"; };
+		7FE035D11C8D5F9500A6B636 /* WriteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WriteViewController.swift; sourceTree = "<group>"; };
+		7FE035D51C8DEF5000A6B636 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		7FF1787E1C7BDD35004BBCC6 /* Twittster.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Twittster.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FF178811C7BDD35004BBCC6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7FF178831C7BDD35004BBCC6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -128,6 +140,9 @@
 				7FF178831C7BDD35004BBCC6 /* ViewController.swift */,
 				7FF178AF1C7BE0C6004BBCC6 /* LoginViewController.swift */,
 				7FE035C51C83B48F00A6B636 /* tweetsViewController.swift */,
+				7FE035CD1C8D4B0D00A6B636 /* IndividualTweetViewController.swift */,
+				7FE035D11C8D5F9500A6B636 /* WriteViewController.swift */,
+				7FE035D51C8DEF5000A6B636 /* ProfileViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -400,7 +415,10 @@
 				7FE035C61C83B48F00A6B636 /* tweetsViewController.swift in Sources */,
 				7FF178841C7BDD35004BBCC6 /* ViewController.swift in Sources */,
 				7FE035C21C83A92D00A6B636 /* TwitterClient.swift in Sources */,
+				7FE035D61C8DEF5000A6B636 /* ProfileViewController.swift in Sources */,
 				7FF178821C7BDD35004BBCC6 /* AppDelegate.swift in Sources */,
+				7FE035CE1C8D4B0D00A6B636 /* IndividualTweetViewController.swift in Sources */,
+				7FE035D21C8D5F9500A6B636 /* WriteViewController.swift in Sources */,
 				7FE035CA1C84874400A6B636 /* TweetTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -411,9 +429,12 @@
 			files = (
 				7FE035C31C83A92D00A6B636 /* TwitterClient.swift in Sources */,
 				7FE035C71C83B48F00A6B636 /* tweetsViewController.swift in Sources */,
+				7FE035CF1C8D4B0D00A6B636 /* IndividualTweetViewController.swift in Sources */,
 				7FE035BF1C83A14A00A6B636 /* Tweet.swift in Sources */,
 				7FE035BB1C83A13A00A6B636 /* User.swift in Sources */,
 				7FF178971C7BDD35004BBCC6 /* TwittsterTests.swift in Sources */,
+				7FE035D71C8DEF5000A6B636 /* ProfileViewController.swift in Sources */,
+				7FE035D31C8D5F9500A6B636 /* WriteViewController.swift in Sources */,
 				7FE035CB1C84874400A6B636 /* TweetTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -424,9 +445,12 @@
 			files = (
 				7FE035C41C83A92D00A6B636 /* TwitterClient.swift in Sources */,
 				7FE035C81C83B48F00A6B636 /* tweetsViewController.swift in Sources */,
+				7FE035D01C8D4B0D00A6B636 /* IndividualTweetViewController.swift in Sources */,
 				7FE035C01C83A14A00A6B636 /* Tweet.swift in Sources */,
 				7FE035BC1C83A13A00A6B636 /* User.swift in Sources */,
 				7FF178A21C7BDD35004BBCC6 /* TwittsterUITests.swift in Sources */,
+				7FE035D81C8DEF5000A6B636 /* ProfileViewController.swift in Sources */,
+				7FE035D41C8D5F9500A6B636 /* WriteViewController.swift in Sources */,
 				7FE035CC1C84874400A6B636 /* TweetTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
