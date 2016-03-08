@@ -31,14 +31,14 @@ class ProfileViewController: UIViewController {
         profPic.setImageWithURL(NSURL(string: picURL as String)!)
         
         
-        //coverImage.setImageWithURL((user.coverURL!)!)
+        coverImage.setImageWithURL((user.coverURL!))
         
         
-       // nameLabel.text = user.name
-       /* usernameLabel.text = "@\((user.screenname)!)"
-        tweetCount.text = String(user.statusesCount)
-        followingCount.text = String(user)
-        followerCount.text = String(user.followersTotal)*/
+       nameLabel.text = user.name as! String
+       usernameLabel.text = "@\((user.screenname)!)"
+        tweetCount.text = String(user.tweetCount)
+        followingCount.text = String(user.followingCount)
+        followerCount.text = String(user.followerCount)
         
     }
 

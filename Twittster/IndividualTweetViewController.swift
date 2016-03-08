@@ -29,6 +29,9 @@ class IndividualTweetViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let tapGestureRecognizer = UITapGestureRecognizer(target:self, action:Selector("imageTapped"))
+        profPic.userInteractionEnabled = true
+        profPic.addGestureRecognizer(tapGestureRecognizer)
         
         TwitterClient.sharedInstance.currentAccount({ (user: User) -> () in
             self.user = user
@@ -37,7 +40,7 @@ class IndividualTweetViewController: UIViewController {
         }
        
         nameLabel.text = "\((tweets.user!.name)!)"
-        usernameLabel.text = "@" + "\((tweets.user?.screenname))"
+        usernameLabel.text = "@" + "\((tweets.user!.screenname) as! String)"
         tweetLabel.text = (tweets.text as! String)
         timeText.text = calculateTimeStamp(tweets.timeStamp!.timeIntervalSinceNow)
         
@@ -58,6 +61,11 @@ class IndividualTweetViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func imageTapped(img: AnyObject)
+    {
+        // Your action
     }
 
 
@@ -123,6 +131,19 @@ class IndividualTweetViewController: UIViewController {
         
         return "\(timeAgo)\(timeChar)"
     }
+    
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        //         Get the new view controller using segue.destinationViewController.
+        //         Pass the selected object to the new view controller.
+        
+        if (segue.identifier == "prof") {
+            let vc = segue.destinationViewController as! ProfileViewController
+            vc.user = User.currentUser
+        }
+
+    }
+
         
 
 }

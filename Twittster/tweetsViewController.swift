@@ -79,11 +79,25 @@ class tweetsViewController: UIViewController, UITableViewDataSource, UITableView
 //         Get the new view controller using segue.destinationViewController.
 //         Pass the selected object to the new view controller.
         
-        let vc = segue.destinationViewController as! IndividualTweetViewController
-        let indexPath = tableView.indexPathForCell(sender as! UITableViewCell)
-        let tweet = tweets?[indexPath!.row]
-        vc.tweets = tweet
-        vc.user = User.currentUser
+        if (segue.identifier == "toIndividTweet") {
+            let vc = segue.destinationViewController as! IndividualTweetViewController
+            let indexPath = tableView.indexPathForCell(sender as! UITableViewCell)
+            let tweet = tweets?[indexPath!.row]
+            vc.tweets = tweet
+            vc.user = User.currentUser
+        }
+        
+        else if (segue.identifier) == "tweetit"{
+                let vc = segue.destinationViewController as! WriteViewController
+                vc.user = User.currentUser
+            
+        }
+        
+        else if (segue.identifier) == "prof"{
+            let vc = segue.destinationViewController as! WriteViewController
+            vc.user = User.currentUser
+            
+        }
     }
 
 

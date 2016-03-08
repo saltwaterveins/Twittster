@@ -63,7 +63,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="@username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AHr-Cg-OkA">
-                                <rect key="frame" x="191" y="243" width="92" height="21"/>
+                                <rect key="frame" x="191" y="243" width="124" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -212,13 +212,13 @@
                                                     <rect key="frame" x="8" y="8" width="45" height="45"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jkn-Oy-GR4">
-                                                    <rect key="frame" x="61" y="8" width="61" height="17"/>
+                                                    <rect key="frame" x="61" y="8" width="85" height="17"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="@UserName" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NZw-Y5-tWP">
-                                                    <rect key="frame" x="150" y="8" width="81" height="17"/>
+                                                    <rect key="frame" x="154" y="8" width="162" height="17"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <color key="textColor" red="0.43775647095959591" green="0.43775647095959591" blue="0.43775647095959591" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -276,7 +276,7 @@
                                             <outlet property="timeText" destination="DEW-qU-wKA" id="6wJ-1j-b8b"/>
                                             <outlet property="tweetText" destination="PaQ-E4-Q8z" id="Ta3-de-udB"/>
                                             <outlet property="usernameText" destination="NZw-Y5-tWP" id="NnJ-Ev-OVh"/>
-                                            <segue destination="d5V-vY-UBw" kind="push" id="8OL-nZ-gnm"/>
+                                            <segue destination="d5V-vY-UBw" kind="push" identifier="toIndividTweet" id="8OL-nZ-gnm"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -292,7 +292,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Tweet!" id="Sxg-hg-2zf">
                             <connections>
-                                <segue destination="4Yd-1P-tDW" kind="push" id="HHc-dq-X1x"/>
+                                <segue destination="4Yd-1P-tDW" kind="push" identifier="tweetit" id="HHc-dq-X1x"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -318,6 +318,10 @@
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0Vk-Xr-XRT">
                                 <rect key="frame" x="9" y="88" width="45" height="45"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="olQ-kV-JKE" appends="YES" id="6vS-EH-nSA"/>
+                                </connections>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pQE-OP-my6">
                                 <rect key="frame" x="62" y="88" width="61" height="17"/>
@@ -326,7 +330,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="@UserName" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aQu-a3-7E3">
-                                <rect key="frame" x="172" y="88" width="81" height="17"/>
+                                <rect key="frame" x="142" y="88" width="148" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" red="0.43775647099999998" green="0.43775647099999998" blue="0.43775647099999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -375,7 +379,7 @@
                     <navigationItem key="navigationItem" id="Bz1-kg-EC7">
                         <barButtonItem key="rightBarButtonItem" title="Profile" id="Iij-Ro-jcH">
                             <connections>
-                                <segue destination="3wV-io-7lb" kind="push" id="HDc-4p-1QK"/>
+                                <segue destination="3wV-io-7lb" kind="push" identifier="prof" id="HDc-4p-1QK"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -389,9 +393,15 @@
                         <outlet property="timeText" destination="l2m-UW-yiW" id="DF1-k0-zC2"/>
                         <outlet property="tweetLabel" destination="EIE-DL-3yr" id="jV2-tM-H3q"/>
                         <outlet property="usernameLabel" destination="aQu-a3-7E3" id="aYh-zp-vBq"/>
+                        <segue destination="3wV-io-7lb" kind="push" identifier="prof" id="USw-Af-LwR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZUd-WG-N4w" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="olQ-kV-JKE" customClass="imageTapped">
+                    <connections>
+                        <segue destination="3wV-io-7lb" kind="push" identifier="prof" id="eKP-fc-Vcu"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1498" y="1058"/>
         </scene>
@@ -414,4 +424,7 @@
             <point key="canvasLocation" x="608" y="299"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="USw-Af-LwR"/>
+    </inferredMetricsTieBreakers>
 </document>
